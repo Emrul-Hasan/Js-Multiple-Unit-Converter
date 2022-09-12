@@ -56,53 +56,14 @@ function main(){
 		addOption(categorySelect, { value: item, text: converter[item].name });
 	});
 
+    //defaults Category unit
+    updateCategoryChanges(categorySelect,leftSelect,rightSelect);
+
     //change element change hand
     categorySelect.addEventListener('change',function(){
-
-
-        const converterName = categorySelect.value;
-        const units = converter[converterName].units;
-    
-        // Handle Left Select
-       
-        removeAllChild(leftSelect);
-        const leftOptions = Object.keys(units);
-        leftOptions.forEach((item) => {
-            addOption(leftSelect, { value: item, text: units[item] });
-        });
-    
-    
-        // Right Left Select
-        removeAllChild(rightSelect);
-        const rightOptions = Object.keys(units);
-        rightOptions.forEach((item) => {
-            addOption(rightSelect, { value: item, text: units[item] });
-        });
-    
-        rightSelect.getElementsByTagName('option')[1].selected = 'selected';
+        updateCategoryChanges(categorySelect,leftSelect,rightSelect);
 
     })
-
-    const converterName = categorySelect.value;
-    const units = converter[converterName].units;
-
-    // Handle Left Select
-   
-    removeAllChild(leftSelect);
-    const leftOptions = Object.keys(units);
-    leftOptions.forEach((item) => {
-		addOption(leftSelect, { value: item, text: units[item] });
-	});
-
-
-    // Right Left Select
-    removeAllChild(rightSelect);
-    const rightOptions = Object.keys(units);
-    rightOptions.forEach((item) => {
-		addOption(rightSelect, { value: item, text: units[item] });
-	});
-
-    rightSelect.getElementsByTagName('option')[2].selected = 'selected';
 
 }
 function addOption(parent,option){
@@ -115,4 +76,27 @@ function removeAllChild(parent){
     while(parent.firstChild){
         parent.firstChild.remove()
     }
+}
+function updateCategoryChanges(categorySelect,leftSelect,rightSelect){
+    const converterName = categorySelect.value;
+    const units = converter[converterName].units;
+    const options = Object.keys(units).sort();
+
+    
+    // Handle Left Select
+   
+    removeAllChild(leftSelect);
+    options.forEach((item) => {
+		addOption(leftSelect, { value: item, text: units[item] });
+	});
+
+       // Right Left Select
+       removeAllChild(rightSelect);
+       options.forEach((item) => {
+           addOption(rightSelect, { value: item, text: units[item] });
+       });
+       rightSelect.getElementsByTagName('option')[1].selected = 'selected';
+   
+      
+
 }
