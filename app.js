@@ -176,6 +176,9 @@ function main(){
     const categorySelect = document.getElementById('category-select');
     const leftSelect = document.getElementById('left-select');
     const rightSelect = document.getElementById('right-select');
+    const leftInput = document.getElementById('left-inp');
+    const rightInput = document.getElementById('right-inp');
+ 
     
 
     const converterKeys = Object.keys(converter).sort();
@@ -186,12 +189,41 @@ function main(){
 
     //defaults Category unit
     updateCategoryChanges(categorySelect,leftSelect,rightSelect);
+    
+
 
     //change element change hand
     categorySelect.addEventListener('change',function(){
     updateCategoryChanges(categorySelect,leftSelect,rightSelect);
 
     });
+
+    leftInput.addEventListener('keyup', function (event) {
+		if (event.target.value && !isNaN(event.target.value)) {
+			const converterName = categorySelect.value;
+			const variants = converter[converterName].variants;
+			const variantKey = `${leftSelect.value}:${rightSelect.value}`;
+			const variant = variants[variantKey];
+			leftInput.value = Number(event.target.value);
+			rightInput.value = variant.calculation(Number(event.target.value));
+		} else {
+			rightInput.value = '';
+		}
+	});
+
+	rightInput.addEventListener('keyup', function (event) {
+		if (event.target.value && !isNaN(event.target.value)) {
+			const converterName = categorySelect.value;
+			const variants = converter[converterName].variants;
+			const variantKey = `${leftSelect.value}:${rightSelect.value}`;
+			const variant = variants[variantKey];
+			rightInput.value = Number(event.target.value);
+			leftInput.value = variant.calculation(Number(event.target.value));
+		} else {
+			leftInput.value = '';
+		}
+	});
+
     leftSelect.addEventListener('change',function(event){
         if(event.target.value == rightSelect.value){
             const options = rightSelect.getElementsByTagName('option');
@@ -204,6 +236,8 @@ function main(){
             }
         }
         lastLeftSelectedValue = event.target.value;
+        calculateValue(categorySelect,leftSelect,rightSelect);
+        
         
     })
     rightSelect.addEventListener('change',function(event){
@@ -218,6 +252,7 @@ function main(){
             }
         }
         lastRightSelectedValue = event.target.value;
+        calculateValue(categorySelect,leftSelect,rightSelect);
 
     })
 
@@ -240,19 +275,32 @@ function updateCategoryChanges(categorySelect,leftSelect,rightSelect){
 
     
     // Handle Left Select
-   
     removeAllChild(leftSelect);
     options.forEach((item) => {
 		addOption(leftSelect, { value: item, text: units[item] });
 	});
-       lastLeftSelectedValue = leftSelect.value;
+    lastLeftSelectedValue = leftSelect.value;
        // Right right Select
        removeAllChild(rightSelect);
        options.forEach((item) => {
            addOption(rightSelect, { value: item, text: units[item] });
        });
-       rightSelect.getElementsByTagName('option')[1].selected = 'selected';
-       lastRightSelectedValue = rightSelect.value;
+    rightSelect.getElementsByTagName('option')[1].selected = 'selected';
+    lastRightSelectedValue = rightSelect.value;
+    calculateValue(categorySelect,leftSelect,rightSelect);
    
-    
+}
+function calculateValue(categorySelect,leftSelect,rightSelect){
+    const leftInput = document.getElementById('left-inp');
+    const rightInput = document.getElementById('right-inp');
+    const formulaText = document.getElementById('formula-text');
+
+    const converterName = categorySelect.value;
+    const variants = converter[converterName].variants;
+    const variantKey = `${leftSelect.value}:${rightSelect.value}`;
+    const variant = variants[variantKey];
+    formulaText.innerText = variant.formula;
+    leftInput.value =1;
+    rightInput.value = variant.calculation(1);
+
 }
