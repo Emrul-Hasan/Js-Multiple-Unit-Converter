@@ -146,8 +146,62 @@ const converter = {
             tonne:"Tonne",
             kilogram:"Kilogram",
             gram:"Gram",
-            milligram:"Milligram"
-        }
+            milligram:"Milligram",
+			microgram:"Microgram",
+			pound:"Pound",
+			ounce:"Ounce",
+        },
+		variants:{
+			'tonne:kilogram':{},
+			'tonne:gram':{},
+			'tonne:milligram':{},
+			'tonne:microgram':{},
+			'tonne:pound':{},
+			'tonne:ounce':{},
+
+			'kilogram:tonne':{},
+			'kilogram:gram':{},
+			'kilogram:milligram':{},
+			'kilogram:microgram':{},
+			'kilogram:pound':{},
+			'kilogram:ounce':{},
+
+			'gram:tonne':{},
+			'gram:kilogram':{},
+			'gram:milligram':{},
+			'gram:microgram':{},
+			'gram:pound':{},
+			'gram:ounce':{},
+
+			'milligram:tonne':{},
+			'milligram:kilogram':{},
+			'milligram:gram':{},
+			'milligram:microgram':{},
+			'milligram:pound':{},
+			'milligram:ounce':{},
+
+			'microgram:tonne':{},
+			'microgram:kilogram':{},
+			'microgram:gram':{},
+			'microgram:milligram':{},
+			'microgram:pound':{},
+			'microgram:ounce':{},
+
+			'pound:tonne':{},
+			'pound:kilogram':{},
+			'pound:gram':{},
+			'pound:milligram':{},
+			'pound:microgram':{},
+			'pound:ounce':{},
+
+			'ounce:tonne':{},
+			'ounce:kilogram':{},
+			'ounce:gram':{},
+			'ounce:milligram':{},
+			'ounce:microgram':{},
+			'ounce:pound':{},
+         
+		}
     },
     length : {
         name:'Length',
@@ -155,8 +209,98 @@ const converter = {
             kilometer:"Kilometer",
             meter:"Meter",
             centimeter:"Centimeter",
-            millimeter:"Millimeter"
-        }
+            millimeter:"Millimeter",
+			micrometers:"Micrometers",
+			mile:"Mile",
+			yard:"Yard",
+			foot:"Foot",
+			inch:"Inch"
+
+        },
+		variants:{
+			'kilometer:meter':{},
+			'kilometer:centimeter':{},
+			'kilometer:millimeter':{},
+			'kilometer:micrometers':{},
+			'kilometer:mile':{},
+			'kilometer:yard':{},
+			'kilometer:foot':{},
+			'kilometer:inch':{},
+			
+			'meter:kilometer':{},
+			'meter:centimeter':{},
+			'meter:millimeter':{},
+			'meter:micrometers':{},
+			'meter:mile':{},
+			'meter:yard':{},
+			'meter:foot':{},
+			'meter:inch':{},
+            
+			'centimeter:kilometer':{},
+			'centimeter:meter':{},
+			'centimeter:millimeter':{},
+			'centimeter:micrometers':{},
+			'centimeter:mile':{},
+			'centimeter:yard':{},
+			'centimeter:foot':{},
+			'centimeter:inch':{},
+
+			'millimeter:kilometer':{},
+			'millimeter:meter':{},
+			'millimeter:centimeter':{},
+			'millimeter:micrometers':{},
+			'millimeter:mile':{},
+			'millimeter:yard':{},
+			'millimeter:foot':{},
+			'millimeter:inch':{},
+
+			'micrometers:kilometer':{},
+			'micrometers:meter':{},
+			'micrometers:centimeter':{},
+			'micrometers:millimeter':{},
+			'micrometers:mile':{},
+			'micrometers:yard':{},
+			'micrometers:foot':{},
+			'micrometers:inch':{},
+
+			'mile:kilometer':{},
+			'mile:meter':{},
+			'mile:centimeter':{},
+			'mile:millimeter':{},
+			'mile:micrometers':{},
+			'mile:yard':{},
+			'mile:foot':{},
+			'mile:inch':{},
+
+			'yard:kilometer':{},
+			'yard:meter':{},
+			'yard:centimeter':{},
+			'yard:millimeter':{},
+			'yard:micrometers':{},
+			'yard:mile':{},
+			'yard:foot':{},
+			'yard:inch':{},
+
+			'foot:kilometer':{},
+			'foot:meter':{},
+			'foot:centimeter':{},
+			'foot:millimeter':{},
+			'foot:micrometers':{},
+			'foot:mile':{},
+			'foot:yard':{},
+			'foot:inch':{},
+
+			'inch:kilometer':{},
+			'inch:meter':{},
+			'inch:centimeter':{},
+			'inch:millimeter':{},
+			'inch:micrometers':{},
+			'inch:mile':{},
+			'inch:yard':{},
+			'inch:foot':{}
+
+
+		}
     },
   
     time :{
