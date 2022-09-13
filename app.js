@@ -350,6 +350,43 @@ const converter = {
 					return n/1440;
 				}		
 			},
+			'hour:second':{
+				formula:'Multiply the time value by 3600',
+				calculation(n){
+					return n*3600;
+				}
+			},
+			'hour:minute':{
+				formula:'Multiply the time value by 60',
+				calculation(n){
+					return n*60;
+				}
+			},
+			'hour:day':{
+				formula:'Divide the time value by 24',
+				calculation(n){
+					return n/24;
+				}
+			},
+
+			'day:second':{
+				formula:'Multiply the time value by 86400',
+				calculation(n){
+					return n*86400;
+				}
+			},
+			'day:minute':{
+				formula:'Multiply the time value by 1440',
+				calculation(n){
+					return n*1440;
+				}
+			},
+			'day:hour':{
+				formula : 'Multiply the time value by 24',
+				calculation(n){
+					return n*24;
+				}
+			},
 			
 		}
     },
