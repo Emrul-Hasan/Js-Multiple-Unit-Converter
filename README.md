@@ -7,7 +7,7 @@
 
 ***Features***
 * Several converter categories.
-* Show the actual formula
+* Show the actual formula.
 * Each category may contain more than one unit.
 * If both sides of an option are selected, swap them.
 
