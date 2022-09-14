@@ -152,9 +152,25 @@ const converter = {
 			ounce:"Ounce",
         },
 		variants:{
-			'tonne:kilogram':{},
-			'tonne:gram':{},
-			'tonne:milligram':{},
+			'tonne:kilogram':{
+				formula:'Multiply the mass value by 1000',
+				calculation(n){
+					return n*1000;
+				}
+
+			},
+			'tonne:gram':{
+				formula:'Multiply the mass value by 1e+6',
+				calculation(n){
+					return n * new Number('1e+6');
+				}
+			},
+			'tonne:milligram':{
+				formula:'Multiply the mass value by 1e+9',
+				calculation(n){
+					return n * new Number('1e+9');
+				}
+			},
 			'tonne:microgram':{},
 			'tonne:pound':{},
 			'tonne:ounce':{},
