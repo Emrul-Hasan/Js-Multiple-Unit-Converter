@@ -171,23 +171,98 @@ const converter = {
 					return n * new Number('1e+9');
 				}
 			},
-			'tonne:microgram':{},
-			'tonne:pound':{},
-			'tonne:ounce':{},
+			'tonne:microgram':{
+				formula:'For an approximate result, multiply the mass value by 1e+12',
+                calculation(n){
+					return n * new Number('1e+12');
+				}
+			},
+			'tonne:pound':{
+				formula:'For an approximate result, multiply the mass value by 2205',
+				calculation(n){
+					return n*2205;
+				}
+			},
+			'tonne:ounce':{
+				formula:'For an approximate result, multiply the mass value by 35270',
+				calculation(n){
+					return n * 35270;
+				}
+			},
 
-			'kilogram:tonne':{},
-			'kilogram:gram':{},
-			'kilogram:milligram':{},
-			'kilogram:microgram':{},
-			'kilogram:pound':{},
-			'kilogram:ounce':{},
+			'kilogram:tonne':{
+				formula:'Divide the mass value by 1000',
+				calculation(n){
+					return n/1000;
+				}
+			},
+			'kilogram:gram':{
+				formula:'Multiply the mass value by 1000',
+				calculation(n){
+					return n*1000;
+				}
+			},
+			'kilogram:milligram':{
+				formula : 'Multiply the mass value by 1e+6',
+				calculation(n){
+					return n * new Number('1e+6');
+				}
+			},
+			'kilogram:microgram':{
+				formula:'For an approximate result, multiply the mass value by 1e+9',
+				calculation(n){
+					return n * new Number('1e+9');
+				}
+			},
+			'kilogram:pound':{
+				formula:'For an approximate result, multiply the mass value by 2.205',
+				calculation(n){
+					return n* 2.205;
+				}
+			},
+			'kilogram:ounce':{
+				formula:'Multiply the mass value by 35.274',
+				calculation(n){
+					return n*35.274;
+				}
+			},
 
-			'gram:tonne':{},
-			'gram:kilogram':{},
-			'gram:milligram':{},
-			'gram:microgram':{},
-			'gram:pound':{},
-			'gram:ounce':{},
+			'gram:tonne':{
+				formula:'Divide the mass value by 1e+6',
+				calculation(n){
+					return n / new Number('1e+6');
+				}
+			},
+			'gram:kilogram':{
+				formula:'Divide the mass value by 1000',
+				calculation(n){
+					return n/1000;
+				}
+			},
+			'gram:milligram':{
+				formula:'Multiply the mass value by 1000',
+				calculation(n){
+					return n*1000;
+				}
+			},
+			'gram:microgram':{
+				formula:'Multiply the mass value by 1e+6',
+				calculation(n){
+					return n * new Number('1e+6');
+				}
+			},
+			'gram:pound':{
+				formula:'For an approximate result, divide the mass value by 453.6',
+				calculation(n){
+					return n/453.6;
+				}
+			},
+			'gram:ounce':{
+				formula:'For an approximate result, divide the mass value by 28.35',
+				calculation(n){
+					return n/28.35;
+				}
+			},
 
 			'milligram:tonne':{},
 			'milligram:kilogram':{},
